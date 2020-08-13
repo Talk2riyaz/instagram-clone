@@ -10,7 +10,7 @@ const NavBar = () => {
         </span>
 
         <div className="navbar-content ">
-          <button className="btn btn-primary mr-5">Add Post</button>
+          <button className="btn btn-primary mr-15">Add Post</button>
           <button
             className="btn btn-action mr-5"
             type="button"
