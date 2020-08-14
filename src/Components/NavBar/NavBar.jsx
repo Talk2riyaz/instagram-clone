@@ -1,16 +1,42 @@
 import React from "react";
 import halfmoon from "halfmoon";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar">
       <div className="container justify-content-between">
-        <span className="navbar-brand">
-          <i className="fa fa-instagram"></i>
-        </span>
-
+        <Link to="/">
+          <span className="navbar-brand">
+            <i className="fa fa-instagram"></i>
+          </span>
+        </Link>
         <div className="navbar-content ">
-          <button className="btn btn-primary mr-15">Add Post</button>
+          {token ? (
+            <div>
+              <button className="btn btn-danger mr-15" onClick={handleLogout}>
+                Logout
+              </button>
+              <Link to="/add-post">
+                <button className="btn btn-primary mr-15">Add Post</button>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-danger mr-15">Login</button>
+            </Link>
+          )}
+          <Link to="/sign-up">
+            <button className="btn btn-secondary mr-15">Sign Up</button>
+          </Link>
+
           <button
             className="btn btn-action mr-5"
             type="button"
