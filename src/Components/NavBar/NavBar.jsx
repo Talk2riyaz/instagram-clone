@@ -29,13 +29,15 @@ const NavBar = () => {
               </Link>
             </div>
           ) : (
-            <Link to="/login">
-              <button className="btn btn-danger mr-15">Login</button>
-            </Link>
+            <div>
+              <Link to="/login">
+                <button className="btn btn-danger mr-15">Login</button>
+              </Link>
+              <Link to="/sign-up">
+                <button className="btn btn-secondary mr-15">Sign Up</button>
+              </Link>
+            </div>
           )}
-          <Link to="/sign-up">
-            <button className="btn btn-secondary mr-15">Sign Up</button>
-          </Link>
 
           <button
             className="btn btn-action mr-5"
