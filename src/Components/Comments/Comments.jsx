@@ -4,8 +4,8 @@ import CommentBox from "./CommentBox";
 const Comments = ({ comments, postId }) => {
   return (
     <React.Fragment>
-      <CommentBox postId={postId} />
       <CommentList comments={comments} />
+      <CommentBox postId={postId} />
     </React.Fragment>
   );
 };

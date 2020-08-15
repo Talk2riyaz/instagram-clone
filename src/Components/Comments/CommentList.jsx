@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const CommentList = ({ comments }) => {
   return (
-    <div className='content m-15'>
+    <div className="content m-15">
       {comments &&
         Object.keys(comments).map((id) => (
           <div key={id}>
@@ -12,9 +12,9 @@ const CommentList = ({ comments }) => {
             <hr />
           </div>
         ))}
-      <div className='text-center mt-20'>
+      {/* <div className='text-center mt-20'>
         <button className='btn btn-sm'>Load all comments</button>
-      </div>
+      </div> */}
     </div>
   );
 };

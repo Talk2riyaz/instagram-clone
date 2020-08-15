@@ -46,8 +46,8 @@ const Post = ({ postId, displayName, url, comments, caption, timestamp }) => {
         </div>
         <div>
           <span className="text-muted m-15">
-            <i className="fa fa-clock-o mr-5" aria-hidden="true"></i> May 4th,
-            2020
+            <i className="fa fa-clock-o mr-5" aria-hidden="true"></i>
+            {new Date(timestamp).toDateString()}
           </span>
         </div>
         <hr />
