@@ -32,13 +32,15 @@ const Post = ({ postId, displayName, url, comments, caption, timestamp }) => {
           </div>
           <div>
             <i
-              className="fa fa-heart-o text-danger mr-5"
+              style={{ fontSize: "25px" }}
+              className="fa fa-heart-o mr-5"
               aria-hidden="true"
             ></i>
 
             <span className="ml-5">
               <i
-                className="fa fa-comments-o text-primary mr-5"
+                style={{ fontSize: "25px" }}
+                className="fa fa-comments-o  mr-5"
                 aria-hidden="true"
               ></i>
             </span>

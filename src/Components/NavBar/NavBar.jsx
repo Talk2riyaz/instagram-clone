@@ -2,8 +2,11 @@ import React from "react";
 import halfmoon from "halfmoon";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
-  const token = localStorage.getItem("token");
+import { connect } from "react-redux";
+
+const NavBar = (props) => {
+  console.log(props);
+  // const token = localStorage.getItem("token");
 
   const handleLogout = () => {
     localStorage.clear();
@@ -19,7 +22,7 @@ const NavBar = () => {
           </span>
         </Link>
         <div className="navbar-content ">
-          {token ? (
+          {props.isLogin ? (
             <div>
               <button className="btn btn-danger mr-15" onClick={handleLogout}>
                 Logout
@@ -53,4 +56,10 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+const mapStatetoProps = (state) => {
+  return {
+    isLogin: state.login.isLogin,
+  };
+};
+
+export default connect(mapStatetoProps)(NavBar);

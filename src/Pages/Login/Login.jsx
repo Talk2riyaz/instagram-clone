@@ -1,30 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import * as action from "../../store/actions/login";
+import { connect } from "react-redux";
+
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      props.history.push("/");
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.isLoggedIn]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = {
-      email: email,
-      password: password,
-    };
-    await axios
-      .post(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAVojDzKwRxZzm4p4HC7rL11U5cUkqKS-I",
-        body
-      )
-      .then((response) => {
-        localStorage.setItem("token", response.data.idToken);
-        localStorage.setItem("displayName", response.data.displayName);
-      })
-      .then(() => {
-        props.history.push("/");
-        window.location.reload();
-      })
-
-      .catch((error) => alert(error.message));
+    props.onLogin(email, password);
   };
   return (
     <div className="content-wrapper m-10 d-flex justify-content-center">
@@ -73,4 +65,12 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({ isLoggedIn: state.login.isLogin });
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogin: (email, password) => dispatch(action.initLogin(email, password)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
