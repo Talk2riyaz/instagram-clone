@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
+import { createStore, applyMiddleware, compose } from "redux";
+import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
