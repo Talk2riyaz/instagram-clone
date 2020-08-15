@@ -1,5 +1,5 @@
 import React from "react";
-import Comments from "../Comments/CommentBox";
+import Comments from "../Comments/Comments";
 
 const Post = ({ postId, displayName, url, comments, caption, timestamp }) => {
   return (

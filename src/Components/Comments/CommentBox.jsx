@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CommentList from "./CommentList";
 
-const Comments = ({ comments, postId }) => {
+const Comments = ({ postId }) => {
   const [comment, setComment] = useState("");
   const handleSubmit = (postId) => {
     const displayName = localStorage.getItem("displayName");
@@ -42,10 +41,6 @@ const Comments = ({ comments, postId }) => {
           </div>
         </div>
       ) : null}
-
-      <hr />
-      <hr />
-      <CommentList comments={comments} />
     </div>
   );
 };
