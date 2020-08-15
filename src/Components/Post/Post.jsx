@@ -1,8 +1,9 @@
 import React from "react";
+import Comments from "../Comments/CommentBox";
 
-const Post = ({ caption, url, displayName }) => {
+const Post = ({ postId, displayName, url, comments, caption, timestamp }) => {
   return (
-    <div className="w-600 mw-full">
+    <div className="w-600 mw-full" key={timestamp}>
       <div className="card p-0">
         <div className="card-title p-1">
           <div className="d-flex">
@@ -24,7 +25,7 @@ const Post = ({ caption, url, displayName }) => {
         <div className="content m-15">
           <div className="content-title d-flex  align-items-center h-50">
             <h5>
-              <strong>name </strong>
+              <strong>{displayName} </strong>
             </h5>
 
             <h6 className="ml-5">{caption}</h6>
@@ -50,37 +51,7 @@ const Post = ({ caption, url, displayName }) => {
           </span>
         </div>
         <hr />
-
-        <div className="content m-15">
-          <h2 className="content-title mb-10">Comments</h2>
-          <div className="input-group mb-10">
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Add a comment"
-            />
-            <div className="input-group-append">
-              <button className="btn btn-primary" type="button">
-                Post
-              </button>
-            </div>
-          </div>
-          <div>
-            <strong>John Doe</strong>
-            <br />
-            Amazing picture! Great job!
-          </div>
-          <hr />
-          <div>
-            <strong>Jane Doe</strong>
-            <br />
-            This is beautiful.
-          </div>
-          <hr />
-          <div className="text-center mt-20">
-            <button className="btn btn-sm">Load all comments</button>
-          </div>
-        </div>
+        <Comments comments={comments} postId={postId} />
       </div>
     </div>
   );

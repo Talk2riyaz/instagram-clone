@@ -5,7 +5,6 @@ import axios from "axios";
 const AddPost = (props) => {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
-  const [id, setId] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
 

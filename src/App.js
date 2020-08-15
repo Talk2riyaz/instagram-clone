@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import halfmoon from "halfmoon";
 import NavBar from "./Components/NavBar/NavBar";
-import Posts from "./Components/Posts/Posts";
+import Posts from "./Pages/Posts/Posts";
 import AddPost from "./Pages/AddPost/AddPost";
 import SignUp from "./Pages/SignUp/SignUp";
 import Login from "./Pages/Login/Login";
