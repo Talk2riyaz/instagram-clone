@@ -5,12 +5,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const NavBar = (props) => {
-  console.log(props);
-  // const token = localStorage.getItem("token");
-
   const handleLogout = () => {
     localStorage.clear();
-    window.location.reload();
   };
 
   return (

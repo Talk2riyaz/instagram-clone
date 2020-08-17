@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import halfmoon from "halfmoon";
 import NavBar from "./Components/NavBar/NavBar";
-import Posts from "./Pages/Posts/Posts";
+import PostsArea from "./Pages/PostsArea/PostsArea";
 import AddPost from "./Pages/AddPost/AddPost";
 import SignUp from "./Pages/SignUp/SignUp";
 import Login from "./Pages/Login/Login";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/add-post" component={AddPost} />4
         <Route path="/sign-up" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route exact path="/" component={Posts} />
+        <Route exact path="/" component={PostsArea} />
       </Switch>
     </div>
   );

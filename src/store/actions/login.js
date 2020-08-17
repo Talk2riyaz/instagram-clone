@@ -12,31 +12,22 @@ export const initLogin = (email, password) => {
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAVojDzKwRxZzm4p4HC7rL11U5cUkqKS-I",
         body
       )
-      .then((response) => {
-        // localStorage.setItem("token", response.data.idToken);
-        // localStorage.setItem("displayName", response.data.displayName);
-        dispatch(setLogin());
-      })
-      //   .then(() => {
-      //     props.history.push("/");
-      //     window.location.reload();
-      //   })
 
-      .catch((error) => {
-        dispatch(loginFailed());
-      });
+      .then((response) => dispatch(setLogin(response.data)))
+      .catch((error) => dispatch(loginFailed(error)));
   };
 };
 
-export const setLogin = () => {
+export const setLogin = (data) => {
   return {
-    type: actionTypes.CHECK_LOGIN,
-    payload: true,
+    type: actionTypes.LOGIN_SUCCESS,
+    payload: data,
   };
 };
 
-export const loginFailed = () => {
+export const loginFailed = (error) => {
   return {
     type: actionTypes.LOGIN_FAILED,
+    payload: error,
   };
 };

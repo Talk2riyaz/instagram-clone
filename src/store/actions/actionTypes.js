@@ -1,2 +1,9 @@
-export const CHECK_LOGIN = "CHECK_LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
+
+export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
+export const GET_POSTS_FAILED = "GET_POSTS_FAILED";
+
+export const ADD_POST_INIT = "ADD_POST_INIT";
+export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
+export const ADD_POST_FAILED = "ADD_POST_FAILED";

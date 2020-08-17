@@ -1,17 +1,18 @@
 import React from "react";
-import Post from "../../Components/Post/Post";
-import PostsContainer from "../../domains/post/containers/PostsContainer";
+import PostContainer from "../../Components/Post/PostContainer";
+import FeedContainer from "../../domains/post/containers/FeedContainer";
+
 const Posts = () => {
   return (
     <div className="content-wrapper">
       <div className="container d-flex align-items-center justify-content-center flex-column">
-        <PostsContainer>
+        <FeedContainer>
           {({ posts }) =>
             posts.map((post) => {
-              return <Post key={post.timestamp} {...post} />;
+              return <PostContainer key={post.timestamp} {...post} />;
             })
           }
-        </PostsContainer>
+        </FeedContainer>
       </div>
     </div>
   );
