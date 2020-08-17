@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const SignUp = (props) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -89,6 +90,12 @@ const SignUp = (props) => {
           type="submit"
           value="Sign up"
         />
+        <div className="d-flex justify-content-end mt-10">
+          Don't have a account?{" "}
+          <Link to="/login">
+            <span className="m-5">Login</span>
+          </Link>
+        </div>
       </form>
     </div>
   );

@@ -13,12 +13,18 @@ export const initLogin = (email, password) => {
         body
       )
 
-      .then((response) => dispatch(setLogin(response.data)))
+      .then((response) => dispatch(loginSuccess(response.data)))
       .catch((error) => dispatch(loginFailed(error)));
   };
 };
 
-export const setLogin = (data) => {
+export const setLoginLoader = () => {
+  return {
+    type: actionTypes.SET_LOGIN_LOADER,
+  };
+};
+
+export const loginSuccess = (data) => {
   return {
     type: actionTypes.LOGIN_SUCCESS,
     payload: data,

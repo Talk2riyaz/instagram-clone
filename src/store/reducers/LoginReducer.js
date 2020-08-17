@@ -3,11 +3,17 @@ import * as actionTypes from "../actions/actionTypes";
 const initState = {
   loginResponse: [],
   isLogin: false,
-  error: "",
+  loader: false,
+  error: null,
 };
 
 const loginReducer = (state = initState, action) => {
   switch (action.type) {
+    case actionTypes.SET_LOGIN_LOADER:
+      return {
+        ...state,
+        loader: true,
+      };
     case actionTypes.LOGIN_SUCCESS:
       const login = {
         ...action.payload,
@@ -16,11 +22,14 @@ const loginReducer = (state = initState, action) => {
         ...state,
         loginResponse: state.loginResponse.concat(login),
         isLogin: true,
+        loader: false,
       };
     case actionTypes.LOGIN_FAILED:
       return {
         ...state,
         error: action.payload,
+        isLogin: false,
+        loader: false,
       };
     default:
       return state;

@@ -56,7 +56,7 @@ const CommentBox = ({ postId, isLogin, displayName }) => {
 const mapStateToProps = (state) => {
   return {
     isLogin: state.login.isLogin,
-    displayName: state.login.loginResponse[0]?.displayName,
+    displayName: state.login?.loginResponse?.displayName,
   };
 };
 

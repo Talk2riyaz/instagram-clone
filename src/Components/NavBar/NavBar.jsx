@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 const NavBar = (props) => {
   const handleLogout = () => {
     localStorage.clear();
+    window.location.reload();
   };
 
   return (
@@ -31,9 +32,6 @@ const NavBar = (props) => {
             <div>
               <Link to="/login">
                 <button className="btn btn-danger mr-15">Login</button>
-              </Link>
-              <Link to="/sign-up">
-                <button className="btn btn-secondary mr-15">Sign Up</button>
               </Link>
             </div>
           )}
