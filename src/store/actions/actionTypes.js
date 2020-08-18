@@ -1,6 +1,11 @@
+export const SET_SIGN_UP_LOADER = "SET_SIGN_UP_LOADER";
+export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
+export const SIGN_UP_FAILED = "SIGN_UP_FAILED";
+
 export const SET_LOGIN_LOADER = "SET_LOGIN_LOADER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
+export const RESET_ERROR = "RESET_ERROR";
 
 export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
 export const GET_POSTS_FAILED = "GET_POSTS_FAILED";

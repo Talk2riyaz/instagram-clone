@@ -1,34 +1,30 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initState = {
-  loginResponse: [],
-  isLogin: false,
+  signUpResponse: [],
+  signUpSuccess: false,
   loader: false,
-  error: null,
+  error: false,
 };
 
-const loginReducer = (state = initState, action) => {
+const signUpReducer = (state = initState, action) => {
   switch (action.type) {
-    case actionTypes.SET_LOGIN_LOADER:
+    case actionTypes.SET_SIGN_UP_LOADER:
       return {
         ...state,
         loader: true,
       };
-    case actionTypes.LOGIN_SUCCESS:
-      const login = {
-        ...action.payload,
-      };
+    case actionTypes.SIGN_UP_SUCCESS:
       return {
         ...state,
-        loginResponse: state.loginResponse.concat(login),
-        isLogin: true,
         loader: false,
+        signUpResponse: action.payload,
+        signUpSuccess: true,
       };
-    case actionTypes.LOGIN_FAILED:
+    case actionTypes.SIGN_UP_FAILED:
       return {
         ...state,
         error: action.payload,
-        isLogin: false,
         loader: false,
       };
     case actionTypes.RESET_ERROR:
@@ -36,9 +32,10 @@ const loginReducer = (state = initState, action) => {
         ...state,
         error: null,
       };
+
     default:
       return state;
   }
 };
 
-export default loginReducer;
+export default signUpReducer;

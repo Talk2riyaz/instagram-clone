@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 
-const CommentBox = ({ postId, isLogin, displayName }) => {
+const CommentBox = ({ postId, isLogin, displayName, signUpSuccess }) => {
   const [comment, setComment] = useState("");
   const handleSubmit = (postId) => {
     const body = {
@@ -20,7 +20,7 @@ const CommentBox = ({ postId, isLogin, displayName }) => {
   };
   return (
     <div className="content m-15">
-      {isLogin ? (
+      {signUpSuccess || isLogin ? (
         <div className="input-group mb-10">
           <input
             style={{
@@ -56,7 +56,8 @@ const CommentBox = ({ postId, isLogin, displayName }) => {
 const mapStateToProps = (state) => {
   return {
     isLogin: state.login.isLogin,
-    displayName: state.login?.loginResponse?.displayName,
+    displayName: state.login?.loginResponse[0]?.displayName,
+    signUpSuccess: state.signUp.signUpSuccess,
   };
 };
 

@@ -19,7 +19,7 @@ const NavBar = (props) => {
           </span>
         </Link>
         <div className="navbar-content ">
-          {props.isLogin ? (
+          {props.signUpSuccess || props.isLogin ? (
             <div>
               <button className="btn btn-danger mr-15" onClick={handleLogout}>
                 Logout
@@ -53,6 +53,7 @@ const NavBar = (props) => {
 const mapStatetoProps = (state) => {
   return {
     isLogin: state.login.isLogin,
+    signUpSuccess: state.signUp.signUpSuccess,
   };
 };
 

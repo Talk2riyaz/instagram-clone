@@ -25,11 +25,11 @@ const AddPost = ({
   };
 
   return (
-    <div className="content-wrapper">
+    <div className="content-wrapper  d-flex justify-content-center">
       {loading ? (
         <Spinner />
       ) : (
-        <form onSubmit={handleSubmit} className="container mw-full w-400 mt-20">
+        <form onSubmit={handleSubmit} className="w-400 mw-full m-20">
           <div className="form-group">
             <label className="" htmlFor="Caption">
               Caption

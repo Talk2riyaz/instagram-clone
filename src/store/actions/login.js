@@ -14,7 +14,12 @@ export const initLogin = (email, password) => {
       )
 
       .then((response) => dispatch(loginSuccess(response.data)))
-      .catch((error) => dispatch(loginFailed(error)));
+      .catch((error) => {
+        dispatch(loginFailed(error));
+        setTimeout(() => {
+          dispatch(resetError());
+        }, 1500);
+      });
   };
 };
 
@@ -35,5 +40,11 @@ export const loginFailed = (error) => {
   return {
     type: actionTypes.LOGIN_FAILED,
     payload: error,
+  };
+};
+
+const resetError = () => {
+  return {
+    type: actionTypes.RESET_ERROR,
   };
 };
