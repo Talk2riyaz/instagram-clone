@@ -16,6 +16,7 @@ const PostContainer = ({
         <Post
           postId={postId}
           displayName={displayName}
+          comments={comments}
           url={url}
           caption={caption}
           timestamp={timestamp}

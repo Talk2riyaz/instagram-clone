@@ -2,9 +2,11 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initState = {
   posts: [],
+  length: 0,
   AddPostSuccessful: false,
+  count: 5,
   error: "",
-  loading: false,
+  loading: true,
 };
 
 const postsReducer = (state = initState, action) => {
@@ -12,9 +14,11 @@ const postsReducer = (state = initState, action) => {
     case actionTypes.GET_POSTS_SUCCESS:
       return {
         ...state,
-        posts: action.payload,
+        posts: action.payload.posts,
+        length: action.payload.length,
         loading: false,
         AddPostSuccessful: false,
+        count: state.count + 5,
       };
     case actionTypes.GET_POSTS_FAILED:
       return {

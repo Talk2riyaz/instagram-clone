@@ -40,9 +40,8 @@ const Post = ({ postId, displayName, url, comments, caption, timestamp }) => {
               style={{ fontSize: "25px" }}
               className="fa fa-comments-o  mr-5"
               aria-hidden="true"
-            >
-              {comments && Object.keys(comments).length}
-            </i>
+            ></i>
+            {comments && Object.keys(comments).length}
           </span>
         </div>
       </div>

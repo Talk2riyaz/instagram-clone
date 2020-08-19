@@ -61,7 +61,6 @@ const Login = ({
       ) : (
         <form
           onSubmit={handleSubmit}
-          method="..."
           noValidate
           className=" aligin-items-center m-10 w-400 mw-full"
         >
@@ -116,7 +115,7 @@ const Login = ({
             disabled={formVaildationError}
           />
           <div className="d-flex justify-content-end mt-10">
-            Don't have a account?
+            Don't have an account?
             <Link to="/sign-up">
               <span className="m-5">Sign Up</span>
             </Link>
