@@ -2,13 +2,22 @@ import React from "react";
 import PostContainer from "../../Components/Post/PostContainer";
 import FeedContainer from "../../domains/post/containers/FeedContainer";
 import Spinner from "../../Components/Spinner/Spinner";
+import SmallSpinner from "./../../Components/smallSpinner/smallSpinner";
 
 const Posts = () => {
   return (
     <div className="content-wrapper">
       <div className="container d-flex align-items-center justify-content-center flex-column">
         <FeedContainer>
-          {({ posts, handleAlert, loading }) => (
+          {({
+            posts,
+            onMorePostLoader,
+            onGetMorePosts,
+            loading,
+            smallLoader,
+            count,
+            length,
+          }) => (
             <>
               {!loading ? (
                 posts.map((post) => (
@@ -17,7 +26,19 @@ const Posts = () => {
               ) : (
                 <Spinner />
               )}
-              {/* <button onClick={handleAlert}>test</button> */}
+              {count >= length ? null : !smallLoader ? (
+                <button
+                  className="btn btn-lg"
+                  onClick={() => {
+                    onMorePostLoader();
+                    onGetMorePosts(count, length);
+                  }}
+                >
+                  Load More Post...
+                </button>
+              ) : (
+                <SmallSpinner />
+              )}
             </>
           )}
         </FeedContainer>

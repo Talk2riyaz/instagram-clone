@@ -50,11 +50,11 @@ const NavBar = (props) => {
   );
 };
 
-const mapStatetoProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     isLogin: state.login.isLogin,
     signUpSuccess: state.signUp.signUpSuccess,
   };
 };
 
-export default connect(mapStatetoProps)(NavBar);
+export default connect(mapStateToProps)(NavBar);

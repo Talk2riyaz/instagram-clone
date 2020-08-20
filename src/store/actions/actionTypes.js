@@ -6,8 +6,11 @@ export const SET_LOGIN_LOADER = "SET_LOGIN_LOADER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 export const RESET_ERROR = "RESET_ERROR";
+export const LOG_OUT = "LOG_OUT";
 
 export const GET_POSTS_SUCCESS = "GET_POSTS_SUCCESS";
+export const SET_POST_LOADER = "SET_POST_LOADER";
+export const GET_MORE_POSTS_SUCCESS = "GET_MORE_POSTS_SUCCESS";
 export const GET_POSTS_FAILED = "GET_POSTS_FAILED";
 
 export const ADD_POST_INIT = "ADD_POST_INIT";

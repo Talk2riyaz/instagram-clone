@@ -19,6 +19,21 @@ const postsReducer = (state = initState, action) => {
         loading: false,
         AddPostSuccessful: false,
         count: state.count + 5,
+        smallLoader: null,
+      };
+
+    case actionTypes.SET_POST_LOADER:
+      return {
+        ...state,
+        smallLoader: true,
+      };
+
+    case actionTypes.GET_MORE_POSTS_SUCCESS:
+      return {
+        ...state,
+        posts: state.posts.concat(action.payload),
+        count: state.count + 5,
+        smallLoader: false,
       };
     case actionTypes.GET_POSTS_FAILED:
       return {

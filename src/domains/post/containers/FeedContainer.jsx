@@ -9,6 +9,11 @@ const PostsContainer = ({
   posts,
   loading,
   error,
+  smallLoader,
+  count,
+  length,
+  onGetMorePosts,
+  onMorePostLoader,
 }) => {
   useEffect(() => {
     onGetPostsLength();
@@ -16,11 +21,16 @@ const PostsContainer = ({
   if (error) {
     alert(error.message);
   }
-  const handleAlert = () => {
-    alert("hi");
-  };
 
-  return children({ posts, loading, handleAlert });
+  return children({
+    posts,
+    loading,
+    onGetMorePosts,
+    smallLoader,
+    count,
+    length,
+    onMorePostLoader,
+  });
 };
 
 const mapStateToProps = (state) => {
@@ -30,12 +40,15 @@ const mapStateToProps = (state) => {
     error: state.posts.error,
     length: state.posts.length,
     count: state.posts.count,
+    smallLoader: state.posts.smallLoader,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetPostsLength: () => dispatch(action.getPostsLength()),
+    onGetMorePosts: (num) => dispatch(action.getMorePosts(num)),
+    onMorePostLoader: () => dispatch(action.getMorePostLoader()),
   };
 };
 

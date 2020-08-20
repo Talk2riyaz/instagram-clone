@@ -17,13 +17,19 @@ const AddPost = ({
   });
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
-  console.log(loading);
+  const [fla, setFla] = useState(true);
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddtPostInit();
     onAddPost(image, caption, displayName);
   };
 
+  const handleChange = (e) => {
+    if (e.target.files[0]) {
+      setFla(false);
+      setImage(e.target.files[0]);
+    }
+  };
   return (
     <div className="content-wrapper  d-flex justify-content-center">
       {loading ? (
@@ -49,9 +55,7 @@ const AddPost = ({
               id="file-input"
               data-default-value="<a href='...' target='_blank' rel='noopener'></a>"
               accept=".jpg,.png"
-              onChange={(e) =>
-                e.target.files[0] ? setImage(e.target.files[0]) : null
-              }
+              onChange={handleChange}
             />
             <label htmlFor="file-input">Choose picture</label>
           </div>
@@ -59,6 +63,7 @@ const AddPost = ({
             type="submit"
             className="btn btn-primary mt-10"
             value="Add Post"
+            disabled={fla}
           ></input>
         </form>
       )}

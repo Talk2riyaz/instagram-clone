@@ -42,11 +42,11 @@ export const getPosts = (length) => {
   };
 };
 
-export const getMorePosts = (length) => {
+export const getMorePosts = (count) => {
   return (dispatch) => {
     axios
       .get(
-        `https://fayez-instagram.firebaseio.com/posts.json?orderBy="timestamp"&limitToLast=5`
+        `https://fayez-instagram.firebaseio.com/posts.json?orderBy="timestamp"&limitToLast=${count}`
       )
       .then((response) => {
         if (response.data) {
@@ -55,14 +55,27 @@ export const getMorePosts = (length) => {
               postId: id,
               ...response.data[id],
             }))
-            // .filter((_, i) => i < 2)
+            .filter((_, i) => i < 5)
             .sort((a, b) => b.timestamp - a.timestamp);
-          dispatch(getPostSuccess(sortedPost, length));
+          dispatch(getMorePostSuccess(sortedPost));
         }
       })
       .catch((error) => {
         dispatch(getPostFailed(error));
       });
+  };
+};
+
+export const getMorePostLoader = () => {
+  return {
+    type: actionTypes.SET_POST_LOADER,
+  };
+};
+
+const getMorePostSuccess = (posts) => {
+  return {
+    type: actionTypes.GET_MORE_POSTS_SUCCESS,
+    payload: posts,
   };
 };
 
