@@ -48,3 +48,10 @@ const resetError = () => {
     type: actionTypes.RESET_ERROR,
   };
 };
+
+export const logOut = () => {
+  localStorage.clear();
+  return {
+    type: actionTypes.LOG_OUT,
+  };
+};

@@ -28,7 +28,7 @@ const Posts = () => {
               )}
               {count >= length ? null : !smallLoader ? (
                 <button
-                  className="btn btn-lg"
+                  className="btn btn-lg mb-20"
                   onClick={() => {
                     onMorePostLoader();
                     onGetMorePosts(count, length);

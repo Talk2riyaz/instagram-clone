@@ -51,6 +51,7 @@ const postsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         AddPostSuccessful: true,
+        count: 5,
       };
     case actionTypes.ADD_POST_FAILED:
       return {

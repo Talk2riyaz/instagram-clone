@@ -3,8 +3,8 @@ import React from "react";
 import "./smallSpinner.css";
 
 const SmallSpinner = () => (
-  <div class="cssload-container">
-    <div class="cssload-whirlpool"></div>
+  <div className="cssload-container">
+    <div className="cssload-whirlpool"></div>
   </div>
 );
 
