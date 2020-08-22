@@ -1,6 +1,6 @@
 import * as actionTypes from "../actions/actionTypes";
 import axios from "axios";
-
+import { persistor } from "../store";
 export const initLogin = (email, password) => {
   return (dispatch) => {
     const body = {
@@ -50,7 +50,8 @@ const resetError = () => {
 };
 
 export const logOut = () => {
-  localStorage.clear();
+  persistor.flush();
+  localStorage.removeItem("persist:root");
   return {
     type: actionTypes.LOG_OUT,
   };

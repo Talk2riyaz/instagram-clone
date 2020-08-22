@@ -39,6 +39,7 @@ const loginReducer = (state = initState, action) => {
     case actionTypes.LOG_OUT:
       return {
         ...state,
+        loginResponse: [],
         isLogin: false,
       };
     default:

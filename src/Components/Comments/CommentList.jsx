@@ -14,9 +14,6 @@ const CommentList = ({ comments }) => {
             <hr />
           </div>
         ))}
-      {/* <div className='text-center mt-20'>
-        <button className='btn btn-sm'>Load all comments</button>
-      </div> */}
     </div>
   );
 };

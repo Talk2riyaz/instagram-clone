@@ -1,5 +1,6 @@
 import loginReducer from "./LoginReducer";
 import PostsReducer from "./PostsReducer";
+import commentBoxReducer from "./CommentBoxReducer";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
@@ -11,6 +12,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  comment: commentBoxReducer,
   login: loginReducer,
   posts: PostsReducer,
   signUp: SignUpReducer,

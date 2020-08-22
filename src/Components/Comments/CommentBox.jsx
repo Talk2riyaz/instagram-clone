@@ -1,31 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import * as action from "../../store/actions/CommentBox";
 
-const CommentBox = ({ postId, isLogin, displayName, signUpSuccess }) => {
+const CommentBox = ({
+  postId,
+  isLogin,
+  displayName,
+  signUpSuccess,
+  onAddComment,
+}) => {
   const [comment, setComment] = useState("");
-  const handleSubmit = (postId) => {
-    const body = {
-      userName: displayName,
-      comment: comment,
-    };
-    axios
-      .post(
-        `https://fayez-instagram.firebaseio.com/posts/${postId}/comments.json`,
-        body
-      )
-      // .then(() => window.location.reload())
-      .then((response) => console.log(response))
-      .then(setComment(""));
-  };
+  // const handleSubmit = (postId) => {
+  //   onAddComment(postId, comment, displayName);
+  //   setComment("");
+  // };
   return (
     <div className="content m-15">
       {signUpSuccess || isLogin ? (
         <div className="input-group mb-10">
           <input
             style={{
-              // color: "#57B8F7",
-              // fontWeight: 800,
               border: "none",
             }}
             type="text"
@@ -42,8 +37,11 @@ const CommentBox = ({ postId, isLogin, displayName, signUpSuccess }) => {
               boxShadow: "none",
             }}
             className="btn btn-default-sm"
-            type="button"
-            onClick={() => handleSubmit(postId)}
+            type="submit"
+            onClick={() => {
+              onAddComment(postId, comment, displayName);
+              setComment("");
+            }}
           >
             Post
           </button>
@@ -61,4 +59,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CommentBox);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddComment: (postId, comment, displayName) =>
+      dispatch(action.addComment(postId, comment, displayName)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentBox);

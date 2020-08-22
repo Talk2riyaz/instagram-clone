@@ -14,10 +14,11 @@ const PostsContainer = ({
   length,
   onGetMorePosts,
   onMorePostLoader,
+  commentFlag,
 }) => {
   useEffect(() => {
     onGetPostsLength();
-  }, []);
+  }, [commentFlag]);
   if (error) {
     alert(error.message);
   }
@@ -41,6 +42,7 @@ const mapStateToProps = (state) => {
     length: state.posts.length,
     count: state.posts.count,
     smallLoader: state.posts.smallLoader,
+    commentFlag: state.comment.addCommentFlag,
   };
 };
 

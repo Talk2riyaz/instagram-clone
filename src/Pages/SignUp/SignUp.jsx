@@ -18,7 +18,7 @@ const SignUp = ({
   const [formVaildationError, setFormVaildationError] = useState(" ");
   useEffect(() => {
     if (signUpSuccess) {
-      history.push("/");
+      history.push("/login");
     }
   });
 
