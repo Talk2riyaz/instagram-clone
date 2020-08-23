@@ -8,7 +8,7 @@ import SignUpReducer from "./SignUpReducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["login", "signUp"],
+  whitelist: ["login"],
 };
 
 const rootReducer = combineReducers({

@@ -1,12 +1,14 @@
 import React from "react";
 import halfmoon from "halfmoon";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import * as action from "../../store/actions/login";
 import { connect } from "react-redux";
 
 const NavBar = (props) => {
   const handleLogout = () => {
     props.onLogOut();
+    console.log(props);
+    props.history.push("/login");
   };
 
   return (
@@ -42,17 +44,6 @@ const NavBar = (props) => {
                   </h6>
                 </div>
               </div>
-              {/* <span
-                style={{
-                  fontSize: "30px",
-                }}
-                className="m-20"
-              >
-                Welcome {props.displayName}
-              </span>
-              <button className="btn btn-danger mr-15" onClick={handleLogout}>
-                Logout
-              </button> */}
               <Link to="/add-post">
                 <button className="btn btn-default mr-15">
                   <i className="fa fa-plus"></i>
@@ -69,7 +60,6 @@ const NavBar = (props) => {
                 >
                   <i className="fa fa-user m-20"></i>
                 </span>
-                {/* <button className="btn btn-danger mr-15">Login</button> */}
               </Link>
             </div>
           )}
@@ -101,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar));
